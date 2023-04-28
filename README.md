@@ -66,6 +66,56 @@ Example:
 ❯ bin/decoder -cf examples/BIKES/mule_slant_BIKES_lambda2048_decode.conf
 
 ```
+### parameters in the encoder's configuration file  
+   
+-lf : path to input light field directory  
+-o : path to output compressed file  
+-nv : number ov vertical views  
+-nh : number ov horizontal views  
+-off_h : first horizontal view index  
+-off_v : first vertical view index  
+  
+-lambda : Lagrange multiplier that controls the operation point. Increasing lambda reduces the rate while increasing the distortion  
+-u : maximum transform length at u coordinate  
+-v : maximum transform length at u coordinate  
+-s : maximum transform length at u coordinate  
+-t : maximum transform length at u coordinate  
+-min_u : minimum transform length at u coordinate  
+-min_v : minimum transform length at v coordinate  
+-min_s : minimum transform length at s coordinate  
+-min_t : minimum transform length at s coordinate  
+-t_scale : gain of the DCT transform applied at direction t (defaults to 1.0)  
+-s_scale : gain of the DCT transform applied at direction s (defaults to 1.0)  
+-v_scale : gain of the DCT transform applied at direction v (defaults to 1.0)  
+-u_scale : gain of the DCT transform applied at direction u (defaults to 1.0)  
+  
+-max_slant : search range for the optimum slant is [-max_slant, max_slant]  
+-min_slant_block_u : blocks with less than this size in the u coordinate will not be slanted  
+-min_slant_block_v : blocks with less than this size in the v coordinate will not be slanted  
+  
+-lenslet13x13 : to be used when the light field was captured with a lenslet camera  
+  
+Any one of these commands in the configuration file can be overriden by placing them in command line when invoking the encoder  
+   
+### parameters in the decoder's configuration file  
+  
+-lf : path to the output reconstructed light field directory  
+-i : path to the input compressed file  
+-nv : number ov vertical views  
+-nh : number ov horizontal views  
+-off_h : first horizontal view index  
+-off_v : first vertical view index   
+  
+-t_scale : gain of the DCT transform applied at direction t (must be set as the inverse of the value used when encoding)  
+-s_scale : gain of the DCT transform applied at direction s (must be set as the inverse of the value used when encoding)  
+-v_scale : gain of the DCT transform applied at direction v (must be set as the inverse of the value used when encoding)  
+-u_scale : gain of the DCT transform applied at direction u (must be set as the inverse of the value used when encoding)  
+
+-lenslet13x13 : to be used when the light field was captured with a lenslet camera  
+  
+Any one of these commands in the configuration file can be overriden by placing them in command line when invoking the encoder  
+
+
 
 ### License
 
